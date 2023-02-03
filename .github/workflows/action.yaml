@@ -1,0 +1,8 @@
+name: Build and Deploy workflow
+on: [push]
+jobs:
+  buils_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone code
+        uses action/checkout@v2
