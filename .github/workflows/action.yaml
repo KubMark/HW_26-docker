@@ -21,14 +21,14 @@ jobs:
       - name: render config
         run: |
           mkdir deploy
-          cat docker_compose.yaml | envsubst > deploy/docker_compose.yaml
-      - name: copy docker_compose.yaml to server
+          cat docker-compose.yaml | envsubst > deploy/docker-compose.yaml
+      - name: copy docker-compose.yaml to server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SERVER_LOGIN }}
           password: ${{ secrets.SERVER_PASS }}
-          source: "deploy/docker_compose.yaml"
+          source: "deploy/docker-compose.yaml"
           target: "hw26"
           strip_components: 1
       - name: deploy app
