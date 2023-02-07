@@ -6,4 +6,4 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./movies.db:/code/movies.db
+      - ./movies.db:/hw26/movies.db

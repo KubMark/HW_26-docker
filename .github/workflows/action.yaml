@@ -31,6 +31,16 @@ jobs:
           source: "deploy/docker_compose.yaml"
           target: "hw26"
           strip_components: 1
+      - name: deploy app
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.SERVER_LOGIN }}
+          password: ${{ secrets.SERVER_PASS }}
+          script: |
+            cd hw26
+            echo ${{ secret.SERVER_PASS }} | sudo -S docker-compose up -d
+            
 
 
 
